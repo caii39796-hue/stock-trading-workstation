@@ -1,0 +1,14 @@
+# 测试和临时文件
+assets/final-check.js
+assets/test-global.js
+_tmp_*.js
+
+# 系统文件
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
