@@ -545,6 +545,8 @@
     refresh: refresh,
     onShow: onShow,
     getQuote: function(tc) { return quoteCache[tc] || null; },
+    getStocks: function() { return STOCKS; },
+    getHoldings: function() { return HOLDINGS; },
     marketStatus: marketStatus
   };
 
