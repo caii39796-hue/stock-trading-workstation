@@ -666,10 +666,10 @@ tr:hover td {
   <div class="header-left">
     <div class="logo">A股炒股工作台</div>
     <div class="header-date">
-      2026年8月24日 星期一
-      <span class="market-status closed">
+      <span id="header-date-text">加载中...</span>
+      <span class="market-status closed" id="header-market-status">
         <span class="market-status-dot"></span>
-        休市
+        <span id="header-market-text">休市</span>
       </span>
       <span style="color:var(--accent);font-size:12px;font-weight:600;">数据更新: A股 8/21收盘 · 美股/日韩 30分钟按需</span>
     </div>
@@ -2089,6 +2089,33 @@ function switchTab(tab) {
     if (window.GlobalMarket) window.GlobalMarket.onShow(tab);
   }
 }
+
+function updateHeaderDate() {
+  var WD = ['日','一','二','三','四','五','六'];
+  var now = new Date();
+  var y = now.getFullYear();
+  var m = now.getMonth() + 1;
+  var d = now.getDate();
+  var w = WD[now.getDay()];
+  var dateEl = document.getElementById('header-date-text');
+  if (dateEl) dateEl.textContent = y + '年' + m + '月' + d + '日 星期' + w;
+
+  var statusEl = document.getElementById('header-market-status');
+  var textEl = document.getElementById('header-market-text');
+  if (!statusEl || !textEl) return;
+  var day = now.getDay();
+  var minutes = now.getHours() * 60 + now.getMinutes();
+  var isTrading = (day >= 1 && day <= 5) && ((minutes >= 570 && minutes < 690) || (minutes >= 780 && minutes < 900));
+  if (isTrading) {
+    statusEl.className = 'market-status open';
+    textEl.textContent = '交易中';
+  } else {
+    statusEl.className = 'market-status closed';
+    textEl.textContent = '休市';
+  }
+}
+updateHeaderDate();
+setInterval(updateHeaderDate, 60000);
 </script>
 
 <!-- ECharts -->
@@ -2098,16 +2125,16 @@ function switchTab(tab) {
 <script src="assets/charts.js"></script>
 
 <!-- Watchlist real-time quotes -->
-<script src="assets/watchlist.js?v=20260825c"></script>
+<script src="assets/watchlist.js?v=20260825d"></script>
 
 <!-- Pre-market briefing live monitor -->
-<script src="assets/premarket.js?v=20260825c"></script>
+<script src="assets/premarket.js?v=20260825d"></script>
 
 <!-- Global markets: US / Japan-Korea / Global recap -->
-<script src="assets/globalmarket.js?v=20260825c"></script>
+<script src="assets/globalmarket.js?v=20260825d"></script>
 
 <!-- Auto recap: post-market summary + next-day premarket -->
-<script src="assets/auto-recap.js?v=20260825c"></script>
+<script src="assets/auto-recap.js?v=20260825d"></script>
 
 </body>
 </html>
