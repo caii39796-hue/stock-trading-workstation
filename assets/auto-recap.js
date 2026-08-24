@@ -13,19 +13,19 @@
   'use strict';
 
   var IDX_LIST = [
-    { tc: 'sh000001', name: '上证指数', snap: 3905.20, snapPct: 0.04 },
-    { tc: 'sz399001', name: '深证成指', snap: 14094.17, snapPct: 0.87 },
-    { tc: 'sz399006', name: '创业板指', snap: 3545.58, snapPct: 1.43 }
+    { tc: 'sh000001', name: '上证指数', snap: 3827.40, snapPct: -1.34 },
+    { tc: 'sz399001', name: '深证成指', snap: 13680.13, snapPct: -2.12 },
+    { tc: 'sz399006', name: '创业板指', snap: 3400.78, snapPct: -2.30 }
   ];
 
   var HOLDINGS = [
-    { tc: 'sh600353', name: '旭光电子', shares: 200, cost: 39.208, snap: 38.28, snapPct: 10.00 },
-    { tc: 'sz002436', name: '兴森科技', shares: 300, cost: 39.575, snap: 35.35, snapPct: 4.55 },
-    { tc: 'sh512760', name: '芯片ETF', shares: 400, cost: 1.323, snap: 1.104, snapPct: 0.45 },
-    { tc: 'sh515050', name: '5GETF', shares: 300, cost: 1.241, snap: 1.050, snapPct: 2.64 }
+    { tc: 'sh600353', name: '旭光电子', shares: 200, cost: 39.208, snap: 37.020, snapPct: -1.58 },
+    { tc: 'sz002436', name: '兴森科技', shares: 300, cost: 39.575, snap: 33.240, snapPct: -2.84 },
+    { tc: 'sh512760', name: '芯片ETF', shares: 400, cost: 1.323, snap: 1.117, snapPct: -2.53 },
+    { tc: 'sh515050', name: '5GETF', shares: 300, cost: 1.241, snap: 1.003, snapPct: -2.91 }
   ];
 
-  var INIT_CAPITAL = 20540.70;
+  var INIT_CAPITAL = 25524.98;
   var CASH = 4909.14;
 
   function el(id) { return document.getElementById(id); }

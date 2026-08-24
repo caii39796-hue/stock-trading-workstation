@@ -9,8 +9,8 @@
 
   var FAST_MS = 1000;
   var SLOW_MS = 15000;
-  var SNAPSHOT_DATE = '8/21';
-  var INIT_CAPITAL = 20540.70;
+  var SNAPSHOT_DATE = '8/24';
+  var INIT_CAPITAL = 25524.98;
   var CASH = 4909.14;
 
   var GROUPS = [
