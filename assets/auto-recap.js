@@ -281,10 +281,10 @@
       totalCost += holds[i].cost * holds[i].shares;
       totalDayPnl += holds[i].dayPnl;
     }
-    var totalPnl = totalMktVal - totalCost;
-    var totalPnlPct = totalCost > 0 ? totalPnl / totalCost * 100 : 0;
-    var dayPnlPct = (totalMktVal - totalDayPnl) > 0 ? totalDayPnl / (totalMktVal - totalDayPnl) * 100 : 0;
     var totalAssets = totalMktVal + CASH;
+    var totalPnl = totalAssets - INIT_CAPITAL;
+    var totalPnlPct = INIT_CAPITAL > 0 ? totalPnl / INIT_CAPITAL * 100 : 0;
+    var dayPnlPct = (totalAssets - totalDayPnl) > 0 ? totalDayPnl / (totalAssets - totalDayPnl) * 100 : 0;
     var position = totalMktVal / totalAssets * 100;
 
     var html = '<div style="padding:16px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:10px;margin-bottom:20px;">';

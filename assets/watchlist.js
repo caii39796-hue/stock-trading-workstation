@@ -486,11 +486,12 @@
     });
 
     var total = totalMV + CASH;
+    var realPnl = total - INIT_CAPITAL;
     setText('s-total-v', fmtMoney(total));
     setText('s-mv-v', fmtMoney(totalMV));
     setText('s-mv-s', '仓位 ' + (totalMV / total * 100).toFixed(1) + '%');
     setText('s-cash-s', '可用仓位 ' + (CASH / total * 100).toFixed(1) + '%');
-    setSignedMoney('s-pnl-v', totalPnl, 's-pnl-s', totalPnl / INIT_CAPITAL * 100);
+    setSignedMoney('s-pnl-v', realPnl, 's-pnl-s', realPnl / INIT_CAPITAL * 100);
     setSignedMoney('s-day-v', dayPnl, 's-day-p', dayPnl / (total - dayPnl) * 100);
   }
 
