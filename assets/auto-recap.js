@@ -58,9 +58,10 @@
   function isPostMarket() {
     var now = new Date();
     var day = now.getDay();
-    if (day === 0 || day === 6) return false;
+    if (day === 0 || day === 6) return true;
     var m = now.getHours() * 60 + now.getMinutes();
-    return m >= 900;
+    if (m >= 570 && m < 900) return false;
+    return true;
   }
 
   function getQuote(tc) {
