@@ -20,13 +20,13 @@
 
   var HOLDINGS = [
     { tc: 'sh600353', name: '旭光电子', shares: 200, cost: 39.2085, snap: 38.28, snapPct: 10.00 },
-    { tc: 'sz002436', name: '兴森科技', shares: 200, cost: 43.0273, snap: 35.35, snapPct: 4.55 },
+    { tc: 'sz002436', name: '兴森科技', shares: 300, cost: 43.0273, snap: 35.35, snapPct: 4.55 },
     { tc: 'sh512760', name: '芯片ETF', shares: 400, cost: 1.3233, snap: 1.104, snapPct: 0.45 },
     { tc: 'sh515050', name: '5GETF', shares: 300, cost: 1.2413, snap: 1.050, snapPct: 2.64 }
   ];
 
-  var INIT_CAPITAL = 18854.98;
-  var CASH = 1506.14;
+  var INIT_CAPITAL = 20540.70;
+  var CASH = 4909.14;
 
   function el(id) { return document.getElementById(id); }
   function fmtPct(n) { return (n >= 0 ? '+' : '') + n.toFixed(2) + '%'; }
