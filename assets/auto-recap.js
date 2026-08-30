@@ -58,10 +58,10 @@
   function isPostMarket() {
     var now = new Date();
     var day = now.getDay();
-    if (day === 0 || day === 6) return true;
+    if (day === 0 || day === 6) return false;
     var m = now.getHours() * 60 + now.getMinutes();
-    if (m >= 570 && m < 900) return false;
-    return true;
+    if (m >= 960) return true;
+    return false;
   }
 
   function getQuote(tc) {
@@ -406,10 +406,20 @@
   }
 
   var initTimer = null;
+  var lastGenDate = null;
+  var watchTimer = null;
+
+  function todayKey() {
+    var d = new Date();
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  }
+
   function tryInit() {
     if (!isPostMarket()) return;
+    if (lastGenDate === todayKey()) return;
     if (hasData()) {
       generate();
+      lastGenDate = todayKey();
       return;
     }
     if (window.Watchlist && window.Watchlist.refresh) {
@@ -423,8 +433,19 @@
         clearInterval(initTimer);
         initTimer = null;
         generate();
+        lastGenDate = todayKey();
       }
     }, 2000);
+  }
+
+  function startWatchTimer() {
+    if (watchTimer) clearInterval(watchTimer);
+    watchTimer = setInterval(function() {
+      if (document.hidden) return;
+      if (isPostMarket() && lastGenDate !== todayKey()) {
+        tryInit();
+      }
+    }, 60000);
   }
 
   window.AutoRecap = {
@@ -432,7 +453,8 @@
     onShow: function(tab) {
       if (!isPostMarket()) return;
       if (tab === 'recap' || tab === 'premarket') {
-        if (hasData()) generate();
+        if (lastGenDate === todayKey() && hasData()) return;
+        if (hasData()) { generate(); lastGenDate = todayKey(); }
         else tryInit();
       }
     },
@@ -441,8 +463,9 @@
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', tryInit);
+    document.addEventListener('DOMContentLoaded', function() { tryInit(); startWatchTimer(); });
   } else {
     tryInit();
+    startWatchTimer();
   }
 })();
