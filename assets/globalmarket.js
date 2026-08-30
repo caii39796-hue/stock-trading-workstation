@@ -20,6 +20,7 @@
   var US_INDICES = [
     { secid: '100.DJIA', code: 'DJIA', name: '道琼斯工业指数', snapP: 53277.01, snapC: 0.98, snapO: 52768.87, snapH: 53355.92, snapL: 52768.87, snapPrev: 52759.21 },
     { secid: '100.NDX', code: 'NDX', name: '纳斯达克指数', snapP: 26180.45, snapC: 0.43, snapO: 26198.83, snapH: 26269.85, snapL: 26049.30, snapPrev: 26067.17 },
+    { secid: '100.SPX', code: 'SPX', name: '标普500', snapP: 5995.00, snapC: -0.87, snapO: 6040.00, snapH: 6045.00, snapL: 5990.00, snapPrev: 6047.20 },
     { secid: '100.NDX100', code: 'NDX100', name: '纳斯达克100', snapP: 29308.86, snapC: 0.33, snapO: 29359.60, snapH: 29405.12, snapL: 29142.44, snapPrev: 29213.16 },
     { secid: '251.SOX', code: 'SOX', name: '费城半导体指数', snapP: 11740.37, snapC: -0.51, snapO: 11901.79, snapH: 11943.96, snapL: 11631.72, snapPrev: 11800.02 }
   ];
@@ -71,6 +72,13 @@
     { tc: 'sh000001', name: '上证指数', snapP: 3905.20, snapC: 0.04, snapPrev: 3903.72, snapO: 3891.18, snapH: 3912.13, snapL: 3883.79 },
     { tc: 'sz399001', name: '深证成指', snapP: 14094.17, snapC: 0.87, snapPrev: 13972.78, snapO: 13935.64, snapH: 14132.04, snapL: 13866.39 },
     { tc: 'sz399006', name: '创业板指', snapP: 3545.58, snapC: 1.43, snapPrev: 3495.59, snapO: 3495.11, snapH: 3563.06, snapL: 3478.52 }
+  ];
+
+  // 国际商品（东方财富 push2delay）
+  var COMMODITIES = [
+    { secid: '113.NYM_CL', code: 'CL', name: '纽约原油', snapP: 86.21, snapC: 2.0, snapPrev: 84.50 },
+    { secid: '113.NYM_GC', code: 'GC', name: '现货黄金', snapP: 4530, snapC: 1.5, snapPrev: 4460 },
+    { secid: '133.BTCUSD', code: 'BTC', name: '比特币', snapP: 73000, snapC: 5.3, snapPrev: 69300 }
   ];
 
   /* ================= 状态 ================= */
@@ -239,6 +247,7 @@
     var secids = [];
     US_INDICES.forEach(function(x) { secids.push(x.secid); });
     US_STOCKS.forEach(function(x) { secids.push(x.secid); });
+    COMMODITIES.forEach(function(x) { secids.push(x.secid); });
     fetchEM(secids, function(data) {
       loading.us = false;
       var got = parseDiff(data);
@@ -951,7 +960,15 @@
   window.GlobalMarket = {
     onShow: onShow,
     refresh: function(kind) { maybeRefresh(kind); },
-    renderGlobal: renderGlobal
+    renderGlobal: renderGlobal,
+    getQuote: function(secid) {
+      var q = usData[secid] || asiaData[secid];
+      if (q && q.price > 0) return q;
+      return null;
+    },
+    getAQuote: function(tc) {
+      return aData[tc] || null;
+    }
   };
 
   if (document.readyState === 'loading') {

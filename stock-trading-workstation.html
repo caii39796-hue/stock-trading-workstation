@@ -671,7 +671,7 @@ tr:hover td {
         <span class="market-status-dot"></span>
         <span id="header-market-text">休市</span>
       </span>
-      <span style="color:var(--accent);font-size:12px;font-weight:600;">数据更新: A股 8/24收盘 · 美股/日韩 30分钟按需</span>
+      <span style="color:var(--accent);font-size:12px;font-weight:600;" id="header-data-update">数据更新: 加载中…</span>
     </div>
   </div>
   <div class="tabs">
@@ -696,27 +696,27 @@ tr:hover td {
   <!-- BANNER -->
   <div class="recap-banner">
     <div>
-      <div class="recap-headline" id="pm-headline">8月25日（周二）盘前研判 · 基于8/24收盘</div>
-      <div class="recap-desc">
-        总资产23,032.84元，总市值18,123.70元，总盈亏-2,492.14元（-9.8%）。兴森科技300股、旭光电子200股、芯片ETF400份、5GETF300份。8/24当日亏损642.90元（-2.72%）。当前仓位78.7%、可用资金4,909元——<strong style="color:var(--accent);">弱势震荡，控制仓位</strong>，关注兴森科技33元支撑与旭光电子37元支撑。下方关键位均已联动实时行情，触发即刻高亮。
+      <div class="recap-headline" id="pm-headline">盘前研判 · 加载中…</div>
+      <div class="recap-desc" id="pm-desc">
+        正在获取最新数据…
       </div>
     </div>
-    <div class="recap-stats">
+    <div class="recap-stats" id="pm-stats">
       <div class="recap-stat-row">
         <span class="recap-stat-label">研判基准</span>
-        <span class="recap-stat-value">8/21 收盘</span>
+        <span class="recap-stat-value" id="pm-stat-date">—</span>
       </div>
       <div class="recap-stat-row">
         <span class="recap-stat-label">上证收盘</span>
-        <span class="recap-stat-value" style="color:var(--up)">3905.20 (+0.04%)</span>
+        <span class="recap-stat-value" id="pm-stat-sh">—</span>
       </div>
       <div class="recap-stat-row">
         <span class="recap-stat-label">当前仓位</span>
-        <span class="recap-stat-value" style="color:var(--accent)">78.7%</span>
+        <span class="recap-stat-value" id="pm-stat-pos" style="color:var(--accent)">—</span>
       </div>
       <div class="recap-stat-row">
         <span class="recap-stat-label">可用资金</span>
-        <span class="recap-stat-value">4,909元</span>
+        <span class="recap-stat-value" id="pm-stat-cash">—</span>
       </div>
     </div>
   </div>
@@ -725,7 +725,7 @@ tr:hover td {
   <div class="card" style="margin-bottom:24px;">
     <div class="card-title">
       大盘压力位 / 支撑位
-      <span class="badge">8/21收盘K线测算 · 实时监控</span>
+      <span class="badge" id="pm-levels-badge">收盘K线测算 · 实时监控</span>
     </div>
 
     <!-- 上证实时状态条 -->
@@ -900,42 +900,42 @@ tr:hover td {
 <!-- ============================================== -->
 <div class="section" id="section-morning">
 
-  <!-- INDEX STRIP -->
-  <div class="index-strip">
-    <div class="index-card up">
+  <!-- INDEX STRIP (动态渲染) -->
+  <div class="index-strip" id="morning-idx-strip">
+    <div class="index-card" id="mb-sh-card">
       <div class="index-name">上证指数</div>
-      <div class="index-value">3905.20</div>
-      <div class="index-change up">+0.04% (+1.48)</div>
+      <div class="index-value" id="mb-sh-price">—</div>
+      <div class="index-change" id="mb-sh-chg">—</div>
       <div class="index-meta">
-        <span>成交8834亿</span>
-        <span>换手0.92%</span>
+        <span id="mb-sh-vol">成交—</span>
+        <span id="mb-sh-tr">换手—</span>
       </div>
     </div>
-    <div class="index-card up">
+    <div class="index-card" id="mb-sz-card">
       <div class="index-name">深证成指</div>
-      <div class="index-value">14094.17</div>
-      <div class="index-change up">+0.87% (+121.39)</div>
+      <div class="index-value" id="mb-sz-price">—</div>
+      <div class="index-change" id="mb-sz-chg">—</div>
       <div class="index-meta">
-        <span>成交9958亿</span>
-        <span>换手2.22%</span>
+        <span id="mb-sz-vol">成交—</span>
+        <span id="mb-sz-tr">换手—</span>
       </div>
     </div>
-    <div class="index-card up">
+    <div class="index-card" id="mb-cyb-card">
       <div class="index-name">创业板指</div>
-      <div class="index-value">3545.58</div>
-      <div class="index-change up">+1.43% (+49.99)</div>
+      <div class="index-value" id="mb-cyb-price">—</div>
+      <div class="index-change" id="mb-cyb-chg">—</div>
       <div class="index-meta">
-        <span>成交4945亿</span>
-        <span>换手3.08%</span>
+        <span id="mb-cyb-vol">成交—</span>
+        <span id="mb-cyb-tr">换手—</span>
       </div>
     </div>
-    <div class="index-card up">
+    <div class="index-card" id="mb-total-card">
       <div class="index-name">沪深两市合计</div>
-      <div class="index-value">18793亿</div>
-      <div class="index-change down">缩量2001亿</div>
+      <div class="index-value" id="mb-total-vol">—</div>
+      <div class="index-change" id="mb-total-chg">—</div>
       <div class="index-meta">
-        <span>较上日-9.6%</span>
-        <span>观望情绪升温</span>
+        <span id="mb-total-pct">—</span>
+        <span id="mb-total-hint">—</span>
       </div>
     </div>
   </div>
@@ -945,7 +945,7 @@ tr:hover td {
     <div class="card">
       <div class="card-title">
         今日财经要闻
-        <span class="badge">8月21日</span>
+        <span class="badge" id="mb-news-date">—</span>
       </div>
       <div class="news-list">
         <div class="news-item">
@@ -1066,38 +1066,38 @@ tr:hover td {
       <div class="card">
         <div class="card-title">
           全球市场概览
-          <span class="badge">美东8/20收盘</span>
+        <span class="badge" id="mb-global-date">—</span>
         </div>
-        <div class="metric-grid">
+        <div class="metric-grid" id="mb-global-grid">
           <div class="metric-tile">
             <div class="metric-label">道琼斯</div>
-            <div class="metric-value down">-1.32%</div>
-            <div class="metric-sub">跌超700点</div>
+            <div class="metric-value" id="mb-dow-val">—</div>
+            <div class="metric-sub" id="mb-dow-sub">—</div>
           </div>
           <div class="metric-tile">
             <div class="metric-label">纳斯达克</div>
-            <div class="metric-value down">-1.00%</div>
-            <div class="metric-sub">科技股下挫</div>
+            <div class="metric-value" id="mb-ndx-val">—</div>
+            <div class="metric-sub" id="mb-ndx-sub">—</div>
           </div>
           <div class="metric-tile">
             <div class="metric-label">标普500</div>
-            <div class="metric-value down">-0.87%</div>
-            <div class="metric-sub"></div>
+            <div class="metric-value" id="mb-spx-val">—</div>
+            <div class="metric-sub" id="mb-spx-sub">—</div>
           </div>
           <div class="metric-tile">
             <div class="metric-label">纽约原油</div>
-            <div class="metric-value up">86.21</div>
-            <div class="metric-sub">+2.0% 连涨5日</div>
+            <div class="metric-value" id="mb-oil-val">—</div>
+            <div class="metric-sub" id="mb-oil-sub">—</div>
           </div>
           <div class="metric-tile">
             <div class="metric-label">现货黄金</div>
-            <div class="metric-value up">4530+</div>
-            <div class="metric-sub">突破4530美元/盎司</div>
+            <div class="metric-value" id="mb-gold-val">—</div>
+            <div class="metric-sub" id="mb-gold-sub">—</div>
           </div>
           <div class="metric-tile">
             <div class="metric-label">比特币</div>
-            <div class="metric-value up">73000+</div>
-            <div class="metric-sub">+5.30%</div>
+            <div class="metric-value" id="mb-btc-val">—</div>
+            <div class="metric-sub" id="mb-btc-sub">—</div>
           </div>
         </div>
       </div>
@@ -1634,7 +1634,7 @@ tr:hover td {
   <div class="card">
     <div class="card-title">
       关注板块指数
-      <span class="badge">同花顺口径 · 8/21快照</span>
+      <span class="badge" id="wl-sector-badge">同花顺口径 · 快照</span>
     </div>
     <div class="table-wrap">
       <table>
@@ -1650,7 +1650,7 @@ tr:hover td {
       </table>
     </div>
     <div style="margin-top:12px;font-size:12px;color:var(--muted);">
-      同花顺板块指数暂无公开实时接口，此处为 8/21 盘中快照，仅供参考；个股行情已实时。
+      同花顺板块指数暂无公开实时接口，此处为静态快照，仅供参考；个股行情已实时。
     </div>
   </div>
 </div>
@@ -1696,7 +1696,7 @@ tr:hover td {
   <div class="card" style="margin-bottom:24px;">
     <div class="card-title">
       板块涨跌幅热力图
-      <span class="badge">8月21日</span>
+      <span class="badge" id="recap-sector-date">—</span>
     </div>
     <div class="sector-grid" id="sector-heatmap"></div>
     <div style="margin-top:16px;display:flex;gap:16px;font-size:12px;color:var(--muted);">
@@ -2125,16 +2125,19 @@ setInterval(updateHeaderDate, 60000);
 <script src="assets/charts.js"></script>
 
 <!-- Watchlist real-time quotes -->
-<script src="assets/watchlist.js?v=20260825f"></script>
+<script src="assets/watchlist.js?v=20260830a"></script>
 
 <!-- Pre-market briefing live monitor -->
-<script src="assets/premarket.js?v=20260825f"></script>
+<script src="assets/premarket.js?v=20260830a"></script>
 
 <!-- Global markets: US / Japan-Korea / Global recap -->
-<script src="assets/globalmarket.js?v=20260825f"></script>
+<script src="assets/globalmarket.js?v=20260830a"></script>
 
 <!-- Auto recap: post-market summary + next-day premarket -->
-<script src="assets/auto-recap.js?v=20260825f"></script>
+<script src="assets/auto-recap.js?v=20260830a"></script>
+
+<!-- Morning brief: dynamic index strip + global markets + date badges -->
+<script src="assets/morning-brief.js?v=20260830a"></script>
 
 </body>
 </html>
