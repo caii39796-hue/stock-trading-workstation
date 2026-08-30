@@ -64,6 +64,27 @@
     return false;
   }
 
+  function isWeekdayPreMarket() {
+    var now = new Date();
+    var day = now.getDay();
+    if (day === 0 || day === 6) return false;
+    var m = now.getHours() * 60 + now.getMinutes();
+    return m < 960;
+  }
+
+  function clearStaleRecap() {
+    if (!isWeekdayPreMarket()) return;
+    var headline = el('recap-headline');
+    var desc = el('recap-desc');
+    var statsEl = el('recap-stats');
+    var reviewCard = el('auto-recap-review');
+
+    if (headline) headline.textContent = '今日复盘将于16:00后生成';
+    if (desc) desc.textContent = '当前为交易时段，盘后自动复盘尚未触发。请在今日收盘后16:00查看。';
+    if (statsEl) statsEl.innerHTML = '';
+    if (reviewCard) reviewCard.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted);font-size:14px;">今日盘后复盘将于16:00后自动生成，请稍候。</div>';
+  }
+
   function getQuote(tc) {
     if (window.Watchlist && window.Watchlist.getQuote) {
       var q = window.Watchlist.getQuote(tc);
@@ -442,30 +463,41 @@
     if (watchTimer) clearInterval(watchTimer);
     watchTimer = setInterval(function() {
       if (document.hidden) return;
-      if (isPostMarket() && lastGenDate !== todayKey()) {
+      if (isWeekdayPreMarket()) {
+        clearStaleRecap();
+      } else if (isPostMarket() && lastGenDate !== todayKey()) {
         tryInit();
       }
     }, 60000);
   }
 
   window.AutoRecap = {
-    init: tryInit,
-    onShow: function(tab) {
-      if (!isPostMarket()) return;
-      if (tab === 'recap' || tab === 'premarket') {
-        if (lastGenDate === todayKey() && hasData()) return;
-        if (hasData()) { generate(); lastGenDate = todayKey(); }
-        else tryInit();
+    init: function() {
+      if (isWeekdayPreMarket()) {
+        clearStaleRecap();
+      } else if (isPostMarket()) {
+        tryInit();
       }
+      startWatchTimer();
+    },
+    onShow: function(tab) {
+      if (tab !== 'recap' && tab !== 'premarket') return;
+      if (isWeekdayPreMarket()) {
+        clearStaleRecap();
+        return;
+      }
+      if (!isPostMarket()) return;
+      if (lastGenDate === todayKey() && hasData()) return;
+      if (hasData()) { generate(); lastGenDate = todayKey(); }
+      else tryInit();
     },
     isPostMarket: isPostMarket,
     generate: generate
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() { tryInit(); startWatchTimer(); });
+    document.addEventListener('DOMContentLoaded', function() { window.AutoRecap.init(); });
   } else {
-    tryInit();
-    startWatchTimer();
+    window.AutoRecap.init();
   }
 })();

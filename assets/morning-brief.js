@@ -280,9 +280,46 @@
     return { trading: (m >= 570 && m < 690) || (m >= 780 && m < 900) };
   }
 
+  function isBeforeMorning() {
+    var now = new Date();
+    return now.getHours() * 60 + now.getMinutes() < 540;
+  }
+
+  function showMorningPending() {
+    var ids = ['mb-sh-price','mb-sz-price','mb-cyb-price','mb-total-vol'];
+    ids.forEach(function(id) { setText(id, '—'); });
+    var chgIds = ['mb-sh-chg','mb-sz-chg','mb-cyb-chg','mb-total-chg'];
+    chgIds.forEach(function(id) { setText(id, '将于9:00更新'); });
+    var metaIds = ['mb-sh-vol','mb-sh-tr','mb-sz-vol','mb-sz-tr','mb-cyb-vol','mb-cyb-tr','mb-total-pct','mb-total-hint'];
+    metaIds.forEach(function(id) { setText(id, '—'); });
+    ['mb-sh-card','mb-sz-card','mb-cyb-card','mb-total-card'].forEach(function(id) {
+      var c = el(id); if (c) c.className = 'index-card';
+    });
+
+    var gmIds = ['mb-dow-val','mb-ndx-val','mb-spx-val','mb-oil-val','mb-gold-val','mb-btc-val'];
+    gmIds.forEach(function(id) { setText(id, '—'); });
+    var gmSubs = ['mb-dow-sub','mb-ndx-sub','mb-spx-sub','mb-oil-sub','mb-gold-sub','mb-btc-sub'];
+    gmSubs.forEach(function(id) { setText(id, '—'); });
+
+    var headline = el('pm-headline');
+    if (headline) headline.textContent = '盘前研判将于9:00更新';
+    var desc = el('pm-desc');
+    if (desc) desc.innerHTML = '财经早报和盘前研判在每天上午<strong style="color:var(--accent);">9:00</strong>后自动更新，请稍候。';
+    ['pm-stat-date','pm-stat-sh','pm-stat-pos','pm-stat-cash'].forEach(function(id) { setText(id, '—'); });
+
+    var gd = el('mb-global-date');
+    if (gd) gd.textContent = '将于9:00更新';
+    var nd = el('mb-news-date');
+    if (nd) nd.textContent = '待更新';
+  }
+
   /* ---------- 主刷新函数 ---------- */
   function refresh() {
     updateDateBadges();
+    if (isBeforeMorning()) {
+      showMorningPending();
+      return;
+    }
     renderIndexStrip();
     renderPremarketBanner();
     renderGlobalMarkets();
