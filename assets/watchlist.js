@@ -9,9 +9,9 @@
 
   var FAST_MS = 1000;
   var SLOW_MS = 15000;
-  var SNAPSHOT_DATE = '8/24';
-  var INIT_CAPITAL = 25524.98;
-  var CASH = 4909.14;
+  var SNAPSHOT_DATE = '9/4';
+  var INIT_CAPITAL = 22689.40;
+  var CASH = 22.49;
 
   var GROUPS = [
     { id: 'all', name: '全部' },
@@ -121,8 +121,8 @@
   ];
 
   var HOLDINGS = [
-    { tc: 'sh600353', code: '600353', name: '旭光电子', shares: 200, cost: 39.208 },
-    { tc: 'sz002436', code: '002436', name: '兴森科技', shares: 300, cost: 39.575 },
+    { tc: 'sh600353', code: '600353', name: '旭光电子', shares: 200, cost: 32.385 },
+    { tc: 'sz002436', code: '002436', name: '兴森科技', shares: 400, cost: 38.220 },
     { tc: 'sh512760', code: '512760', name: '芯片ETF', shares: 400, cost: 1.323 },
     { tc: 'sh515050', code: '515050', name: '5GETF', shares: 300, cost: 1.241 }
   ];
