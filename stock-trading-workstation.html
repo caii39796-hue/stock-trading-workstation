@@ -1702,35 +1702,7 @@ tr:hover td {
     <div style="margin-top:16px;display:flex;gap:16px;font-size:12px;color:var(--muted);">
       <span><span style="display:inline-block;width:12px;height:12px;background:rgba(239,68,68,0.6);border-radius:3px;vertical-align:middle;margin-right:4px;"></span>涨幅居前</span>
       <span><span style="display:inline-block;width:12px;height:12px;background:rgba(34,197,94,0.6);border-radius:3px;vertical-align:middle;margin-right:4px;"></span>跌幅居前</span>
-      <span>注：板块涨跌幅为当日表现，资金流向为8月20日数据</span>
-    </div>
-  </div>
-
-  <!-- CAPITAL FLOW + MARKET BREADTH -->
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">
-        主力资金流向
-        <span class="badge">8月20日</span>
-      </div>
-      <figure class="chart-figure">
-        <div id="chart-capital-flow" class="chart-container" style="min-height:360px;"></div>
-      </figure>
-      <div style="margin-top:12px;font-size:13px;color:var(--muted);line-height:1.6;">
-        医药生物获208亿主力资金净流入，通信99亿，有色金属33亿，银行20亿，煤炭连续7日净流入。电子净流出44亿，半导体产业净流出70亿。
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">
-        涨跌停统计
-        <span class="badge">8月19-21日</span>
-      </div>
-      <figure class="chart-figure">
-        <div id="chart-limit-stats" class="chart-container" style="min-height:360px;"></div>
-      </figure>
-      <div style="margin-top:12px;font-size:13px;color:var(--muted);line-height:1.6;">
-        8月19日大跌（跌停约280家），8月20日医药股全线爆发反弹（涨停约65家），8月21日贵金属领涨（涨停约55家）。湖南白银、盛达资源、白银有色涨停，通鼎互联获24亿主力资金净流入。
-      </div>
+      <span>注：板块涨跌幅为当日实时表现</span>
     </div>
   </div>
 
@@ -2063,9 +2035,9 @@ tr:hover td {
 <!-- ===== FOOTER ===== -->
 <div class="footer">
   <div class="disclaimer">
-    数据来源：通达信金融数据接口（静态内容截至2026年8月21日15:30收盘）；自选股、持仓、市场指数与板块ETF行情通过腾讯公开行情接口实时获取，交易日 9:30-11:30 / 13:00-15:00 自选股/持仓/盘前研判页每1秒自动刷新（其他页签15秒），非交易时段显示最后快照；盘前研判关键位基于8/21收盘K线测算；同花顺概念板块指数为静态快照。美股（道琼斯/纳斯达克/纳斯达克100/费城半导体+12只个股）与日韩市场（日经225/KOSPI+16只科技股）行情通过东方财富公开行情接口获取，每30分钟或切换页签时按需更新（非实时），收盘复盘与全球复盘为基于开高低收结构的规则化分析；接口异常时显示8/21收盘快照。新闻资讯来自中国新闻网、证券之星、格隆汇、广发证券、e公司等公开来源；宏观数据来自国家统计局口径。持仓行情为实时数据，非模拟。所有内容不构成投资建议，据此操作风险自担。
+    数据来源：自选股、持仓、市场指数与板块ETF行情通过腾讯公开行情接口实时获取，交易日 9:30-11:30 / 13:00-15:00 自选股/持仓/盘前研判页每1秒自动刷新（其他页签15秒），非交易时段显示最后快照；盘前研判关键位基于最新收盘K线测算。美股（道琼斯/纳斯达克/纳斯达克100/费城半导体+12只个股）与日韩市场（日经225/KOSPI+16只科技股）行情通过东方财富公开行情接口获取，每30分钟或切换页签时按需更新（非实时），收盘复盘与全球复盘为基于开高低收结构的规则化分析。新闻资讯来自中国新闻网、证券之星、格隆汇、广发证券、e公司等公开来源；宏观数据来自国家统计局口径。持仓行情为实时数据，非模拟。所有内容不构成投资建议，据此操作风险自担。
   </div>
-  <div>Powered by TRAE · A股炒股工作台 · 最后数据更新 2026-08-22 · A股/美股/日韩行情按需自动更新</div>
+  <div>Powered by TRAE · A股炒股工作台 · A股/美股/日韩行情按需自动更新</div>
 </div>
 
 <script>
@@ -2125,19 +2097,19 @@ setInterval(updateHeaderDate, 60000);
 <script src="assets/charts.js"></script>
 
 <!-- Watchlist real-time quotes -->
-<script src="assets/watchlist.js?v=20260906a"></script>
+<script src="assets/watchlist.js?v=20260906b"></script>
 
 <!-- Pre-market briefing live monitor -->
-<script src="assets/premarket.js?v=20260906a"></script>
+<script src="assets/premarket.js?v=20260906b"></script>
 
 <!-- Global markets: US / Japan-Korea / Global recap -->
-<script src="assets/globalmarket.js?v=20260906a"></script>
+<script src="assets/globalmarket.js?v=20260906b"></script>
 
 <!-- Auto recap: post-market summary + next-day premarket -->
-<script src="assets/auto-recap.js?v=20260906a"></script>
+<script src="assets/auto-recap.js?v=20260906b"></script>
 
 <!-- Morning brief: dynamic index strip + global markets + date badges -->
-<script src="assets/morning-brief.js?v=20260906a"></script>
+<script src="assets/morning-brief.js?v=20260906b"></script>
 
 </body>
 </html>
