@@ -202,14 +202,14 @@
 
     // 持仓数据
     var holdings = [
+      { tc: 'sh600498', name: '烽火通信', shares: 200, cost: 40.025 },
       { tc: 'sh600353', name: '旭光电子', shares: 200, cost: 32.385 },
-      { tc: 'sz002436', name: '兴森科技', shares: 400, cost: 38.220 },
       { tc: 'sh512760', name: '芯片ETF', shares: 400, cost: 1.323 },
       { tc: 'sh515050', name: '5GETF', shares: 300, cost: 1.241 }
     ];
 
-    var INIT_CAPITAL = 22689.40;
-    var CASH = 22.49;
+    var INIT_CAPITAL = 23555.17;
+    var CASH = 8171.33;
     var totalMV = 0, totalPnl = 0, dayPnl = 0;
 
     holdings.forEach(function(h) {

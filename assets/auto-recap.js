@@ -19,14 +19,14 @@
   ];
 
   var HOLDINGS = [
-    { tc: 'sh600353', name: '旭光电子', shares: 200, cost: 32.385, snap: 31.250, snapPct: -4.35 },
-    { tc: 'sz002436', name: '兴森科技', shares: 400, cost: 38.220, snap: 33.410, snapPct: -4.35 },
-    { tc: 'sh512760', name: '芯片ETF', shares: 400, cost: 1.323, snap: 1.086, snapPct: -2.53 },
-    { tc: 'sh515050', name: '5GETF', shares: 300, cost: 1.241, snap: 0.987, snapPct: -2.91 }
+    { tc: 'sh600498', name: '烽火通信', shares: 200, cost: 40.025, snap: 40.240, snapPct: +0.54 },
+    { tc: 'sh600353', name: '旭光电子', shares: 200, cost: 32.385, snap: 31.730, snapPct: -2.02 },
+    { tc: 'sh512760', name: '芯片ETF', shares: 400, cost: 1.323, snap: 1.106, snapPct: -2.53 },
+    { tc: 'sh515050', name: '5GETF', shares: 300, cost: 1.241, snap: 1.042, snapPct: -2.91 }
   ];
 
-  var INIT_CAPITAL = 22689.40;
-  var CASH = 22.49;
+  var INIT_CAPITAL = 23555.17;
+  var CASH = 8171.33;
 
   function el(id) { return document.getElementById(id); }
   function fmtPct(n) { return (n >= 0 ? '+' : '') + n.toFixed(2) + '%'; }
