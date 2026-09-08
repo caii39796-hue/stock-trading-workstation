@@ -69,7 +69,7 @@
     var day = now.getDay();
     if (day === 0 || day === 6) return false;
     var m = now.getHours() * 60 + now.getMinutes();
-    return m < 960;
+    return m < 555;
   }
 
   function clearStaleRecap() {
@@ -80,7 +80,7 @@
     var reviewCard = el('auto-recap-review');
 
     if (headline) headline.textContent = '今日复盘将于16:00后生成';
-    if (desc) desc.textContent = '当前为交易时段，盘后自动复盘尚未触发。请在今日收盘后16:00查看。';
+    if (desc) desc.textContent = '当前为盘前时段，盘后自动复盘尚未触发。请在今日收盘后16:00查看。';
     if (statsEl) statsEl.innerHTML = '';
     if (reviewCard) reviewCard.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted);font-size:14px;">今日盘后复盘将于16:00后自动生成，请稍候。</div>';
   }
@@ -406,7 +406,7 @@
     var holdsHtml = updateHoldingsRecap();
     var analysisHtml = updateMarketAnalysis(idxData);
 
-    var reviewCard = el('auto-recap-review');
+    var reviewCard = el('trading-review-content') || el('auto-recap-review');
     if (reviewCard) {
       reviewCard.innerHTML = holdsHtml + analysisHtml;
     } else {

@@ -1645,44 +1645,10 @@ tr:hover td {
   <div class="card" style="margin-bottom:24px;">
     <div class="card-title">
       市场热点主题
-      <span class="badge">近3日</span>
+      <span class="badge" id="hot-themes-badge">加载中</span>
     </div>
-    <div class="grid-3">
-      <div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--up);">热门方向</div>
-        <div class="tag-row">
-          <span class="tag hot">贵金属 +5.99%</span>
-          <span class="tag hot">有色金属</span>
-          <span class="tag hot">MLCC概念</span>
-          <span class="tag hot">工业金属</span>
-          <span class="tag hot">消费电子</span>
-          <span class="tag hot">小金属</span>
-          <span class="tag hot">CPO概念</span>
-          <span class="tag hot">锂矿</span>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--down);">回调方向</div>
-        <div class="tag-row">
-          <span class="tag cold">种植业与林业</span>
-          <span class="tag cold">粮食概念</span>
-          <span class="tag cold">创新药</span>
-          <span class="tag cold">生物疫苗</span>
-          <span class="tag cold">养殖业</span>
-          <span class="tag cold">白酒</span>
-          <span class="tag cold">食品饮料</span>
-        </div>
-      </div>
-      <div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:8px;color:var(--accent);">资金持续流入</div>
-        <div class="tag-row">
-          <span class="tag">医药生物 208亿</span>
-          <span class="tag">通信 99亿</span>
-          <span class="tag">有色金属 33亿</span>
-          <span class="tag">银行 20亿</span>
-          <span class="tag">煤炭 7日连续</span>
-        </div>
-      </div>
+    <div id="hot-themes-container">
+      <div style="padding:20px;text-align:center;color:var(--muted);">等待行情数据加载…</div>
     </div>
   </div>
 
@@ -1690,45 +1656,10 @@ tr:hover td {
   <div class="card">
     <div class="card-title">
       智能复盘总结
-      <span class="badge">策略建议</span>
+      <span class="badge" id="recap-review-badge">盘中实时</span>
     </div>
-
-    <!-- PERSONAL REVIEW -->
-    <div style="padding:16px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:10px;margin-bottom:20px;">
-      <h3 style="font-size:15px;margin-bottom:12px;color:var(--accent);">📊 我的持仓复盘</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:13px;line-height:1.8;color:var(--ink);">
-        <div>
-          <p style="margin-bottom:8px;"><strong>当日表现：</strong><span style="color:var(--up);">+1,015.30元 (+6.35%)</span>，大幅跑赢大盘，主要得益于旭光电子涨停。</p>
-          <p style="margin-bottom:8px;"><strong>持仓亮点：</strong>旭光电子当日涨停，亏损收窄至-2.37%，是组合中表现最好的标的。</p>
-          <p style="margin-bottom:8px;"><strong>主要拖累：</strong>兴森科技深度套牢-17.84%，占组合亏损的83%，是亟待解决的问题。</p>
-        </div>
-        <div>
-          <p style="margin-bottom:8px;"><strong>仓位风险：</strong>91.1%高仓位，且95%集中在电子板块，行业集中度极高，缺乏对冲。</p>
-          <p style="margin-bottom:8px;"><strong>ETF表现：</strong>芯片ETF(-12.4%)和5GETF(-15.4%)均深度套牢，虽占比小但拉低整体收益。</p>
-          <p><strong>操作建议：</strong>建议利用旭光电子反弹机会适度减仓，降低仓位至70%以下，保留现金等待更好的买点。</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-      <div>
-        <h3 style="font-size:15px;margin-bottom:12px;color:var(--accent);">市场研判</h3>
-        <div style="font-size:13px;line-height:1.8;color:var(--ink);">
-          <p style="margin-bottom:10px;"><strong>1. 缩量上涨需警惕。</strong>两市成交不足1.9万亿，较上日缩量逾2000亿，场内资金观望情绪加重。连续两日上涨但量能不济，反弹持续性存疑。</p>
-          <p style="margin-bottom:10px;"><strong>2. 贵金属主线明确。</strong>国际金价8月涨超11%，地缘风险持续升温，贵金属板块连续5日上涨，短期仍是确定性较强的方向。</p>
-          <p style="margin-bottom:10px;"><strong>3. 电子板块分化。</strong>消费电子、MLCC概念活跃，但半导体产业资金净流出70亿，板块内部分化加剧。</p>
-          <p><strong>4. 外围扰动持续。</strong>美股三大指数收跌，美联储政策不确定。国内政策面偏暖，市场大概率震荡分化。</p>
-        </div>
-      </div>
-      <div>
-        <h3 style="font-size:15px;margin-bottom:12px;color:var(--accent);">操作建议</h3>
-        <div style="font-size:13px;line-height:1.8;color:var(--ink);">
-          <p style="margin-bottom:8px;"><strong style="color:var(--up);">关注方向：</strong>贵金属、消费电子、AI硬件（PCB/CPO）、地产链</p>
-          <p style="margin-bottom:8px;"><strong style="color:var(--down);">回避方向：</strong>高位医药、粮食概念、高位科技股</p>
-          <p style="margin-bottom:8px;"><strong style="color:var(--accent);">仓位建议：</strong>当前91%仓位偏高，建议降至6-7成。高仓位+集中持仓风险较大，应留足现金应对波动。</p>
-          <p><strong style="color:var(--accent2);">持仓操作：</strong>旭光电子若继续冲高可考虑减仓锁定部分利润；兴森科技关注35元支撑位，若跌破建议止损；ETF建议持有等待行业反弹。</p>
-        </div>
-      </div>
+    <div id="trading-review-content">
+      <div style="padding:40px;text-align:center;color:var(--muted);font-size:14px;">等待行情数据加载…</div>
     </div>
   </div>
 </div>
@@ -1985,6 +1916,7 @@ function switchTab(tab) {
     setTimeout(initPortfolioCharts, 100);
   } else if (tab === 'recap') {
     setTimeout(initRecapCharts, 100);
+    if (window.SectorHeatmap) window.SectorHeatmap.onShow();
     if (window.AutoRecap) window.AutoRecap.onShow('recap');
   } else if (tab === 'watchlist' && window.Watchlist) {
     window.Watchlist.onShow();
@@ -2029,25 +1961,28 @@ setInterval(updateHeaderDate, 60000);
 <script src="./_shared/js/echarts.min.js"></script>
 
 <!-- Charts -->
-<script src="assets/charts.js"></script>
+<script src="assets/charts.js?v=20260909b"></script>
 
 <!-- Watchlist real-time quotes -->
-<script src="assets/watchlist.js?v=20260909a"></script>
+<script src="assets/watchlist.js?v=20260909b"></script>
 
 <!-- Pre-market briefing live monitor -->
-<script src="assets/premarket.js?v=20260909a"></script>
+<script src="assets/premarket.js?v=20260909b"></script>
 
 <!-- Global markets: US / Japan-Korea / Global recap -->
-<script src="assets/globalmarket.js?v=20260909a"></script>
+<script src="assets/globalmarket.js?v=20260909b"></script>
+
+<!-- Sector heatmap + hot themes + intraday recap -->
+<script src="assets/sector-heatmap.js?v=20260909b"></script>
 
 <!-- Auto recap: post-market summary + next-day premarket -->
-<script src="assets/auto-recap.js?v=20260909a"></script>
+<script src="assets/auto-recap.js?v=20260909b"></script>
 
 <!-- Morning brief: dynamic index strip + global markets + date badges -->
-<script src="assets/morning-brief.js?v=20260909a"></script>
+<script src="assets/morning-brief.js?v=20260909b"></script>
 
 <!-- Events calendar: weekly auto-updating event list -->
-<script src="assets/events.js?v=20260909a"></script>
+<script src="assets/events.js?v=20260909b"></script>
 
 </body>
 </html>

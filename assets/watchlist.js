@@ -548,6 +548,8 @@
     getQuote: function(tc) { return quoteCache[tc] || null; },
     getStocks: function() { return STOCKS; },
     getHoldings: function() { return HOLDINGS; },
+    getSectorEtfs: function() { return SECTOR_ETFS; },
+    getIndices: function() { return INDICES; },
     marketStatus: marketStatus
   };
 
