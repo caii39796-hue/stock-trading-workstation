@@ -234,11 +234,11 @@
           radius: ['40%', '70%'],
           center: ['50%', '45%'],
           data: [
-            { value: 7656, name: '旭光电子', itemStyle: { color: up } },
-            { value: 7070, name: '兴森科技', itemStyle: { color: accent } },
-            { value: 463.6, name: '芯片ETF', itemStyle: { color: '#a855f7' } },
-            { value: 315, name: '5GETF', itemStyle: { color: accent2 } },
-            { value: 1506.14, name: '现金', itemStyle: { color: flat } }
+            { value: 8048, name: '烽火通信', itemStyle: { color: up } },
+            { value: 6346, name: '旭光电子', itemStyle: { color: accent } },
+            { value: 442.4, name: '芯片ETF', itemStyle: { color: '#a855f7' } },
+            { value: 312.6, name: '5GETF', itemStyle: { color: accent2 } },
+            { value: 8171.33, name: '现金', itemStyle: { color: flat } }
           ],
           label: { color: ink, fontSize: 12 },
           labelLine: { lineStyle: { color: rule } }
@@ -258,7 +258,7 @@
         grid: { left: 60, right: 20, top: 20, bottom: 40 },
         xAxis: {
           type: 'category',
-          data: ['旭光电子', '兴森科技', '芯片ETF', '5GETF'],
+          data: ['烽火通信', '旭光电子', '芯片ETF', '5GETF'],
           axisLine: { lineStyle: { color: rule } },
           axisLabel: { color: muted, fontSize: 11 }
         },
@@ -271,10 +271,10 @@
         series: [{
           type: 'bar',
           data: [
-            { value: -185.69, itemStyle: { color: down } },
-            { value: -1535.45, itemStyle: { color: down } },
-            { value: -65.70, itemStyle: { color: down } },
-            { value: -57.40, itemStyle: { color: down } }
+            { value: 42.92, itemStyle: { color: up } },
+            { value: -131.06, itemStyle: { color: down } },
+            { value: -86.80, itemStyle: { color: down } },
+            { value: -59.80, itemStyle: { color: down } }
           ],
           barWidth: '40%',
           label: { show: true, position: 'top', color: ink, fontSize: 11, formatter: '{c}元' }
@@ -289,7 +289,7 @@
       annualEl.setAttribute('data-init', '1');
       var annualChart = echarts.init(annualEl, null, { renderer: 'svg' });
       var annualDates = ['06-01','06-05','06-10','06-15','06-20','06-25','06-30','07-05','07-10','07-15','07-20','07-25','07-30','08-05','08-10','08-15','08-21'];
-      var myReturn = [0, -3, -8, -12, -10, -15, -20, -28, -35, -45, -42, -38, -30, -25, -22, -18, -19.63];
+      var myReturn = [0, -1, -2, -3, -2.5, -3, -2, -1.5, -2, -1.5, -1, -0.5, -0.8, -1.2, -1.5, -1.2, -1.00];
       var shReturn = [0, -1, -2, -3, -2, -4, -5, -6, -7, -8, -7, -6, -5, -6, -7, -6.5, -6.34];
       annualChart.setOption({
         animation: false,

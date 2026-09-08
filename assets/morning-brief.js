@@ -242,7 +242,7 @@
 
       var parts = [];
       parts.push('总资产' + fmtMoney(total) + '元，总市值' + fmtMoney(totalMV) + '元，总盈亏' + fmtSigned(realPnl) + '元（' + fmtPct(pnlPct) + '）。');
-      parts.push('兴森科技300股、旭光电子200股、芯片ETF400份、5GETF300份。');
+      parts.push('烽火通信200股、旭光电子200股、芯片ETF400份、5GETF300份。');
       if (Math.abs(dayPnl) > 0.01) parts.push(prevTradeShort() + '当日' + (dayPnl >= 0 ? '盈利' : '亏损') + fmtMoney(Math.abs(dayPnl)) + '元（' + fmtPct(dayPct) + '）。');
       parts.push('当前仓位' + posPct.toFixed(1) + '%、可用资金' + fmtMoney(CASH) + '元——');
 
@@ -254,9 +254,9 @@
 
       // 关键支撑/压力提示
       var supports = [];
-      if (getQuote('sz002436')) {
-        var xingsen = getQuote('sz002436');
-        supports.push('兴森科技' + xingsen.price.toFixed(2) + '元');
+      if (getQuote('sh600498')) {
+        var fenghuo = getQuote('sh600498');
+        supports.push('烽火通信' + fenghuo.price.toFixed(2) + '元');
       }
       if (getQuote('sh600353')) {
         var xuguang = getQuote('sh600353');
